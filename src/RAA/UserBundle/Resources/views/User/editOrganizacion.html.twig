@@ -1,0 +1,161 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }} 
+
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+{% endblock %}
+
+   
+   
+{% block body %}
+ 
+  
+     {{ parent() }}
+     
+     <div style="color:white" >
+            
+           
+            <h3 class="text-center" >Edicion de Creando Sonrisas</h3>
+            <div class="row center-block">
+                <div class="col-md-6"  style="margin: auto;" >
+                    {#<form>#}
+                    {#     <div class="form-group">#}
+                    {#         <label for="exampleInputEmail1">Nombre del Lugar</label>#}
+                    {#         <input class="form-control"  name="nomevento" id="nomevento" placeholder="lugar">#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#         <label for="exampleInputPassword1">Descripcion</label>#}
+                    {#         <textarea name="desevento" id="desevento"  class="form-control" rows="3"></textarea>#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#        <label for="exampleInputFile">Imagen del Lugar</label>#}
+                    {#        <input type="file" id="fotoevento"  name="fotoevento" >#}
+                           
+                    {#    </div>#}
+
+                    {#   <button  style="margin-bottom: 25px;" type="submit" class="btn btn-default">Agregar Lugar</button>#}
+                    {#</form>#}
+                    
+                    {#{{ form_start(form) }}#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.titulo)}}#}
+                    {#         {{form_widget(form.titulo, {'attr' : {'class' : 'form-control', 'placeholder' : 'Evento'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.titulo)}} </span>#}
+                             
+                    {#      </div>#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.texto)}}#}
+                    {#         {{form_widget(form.texto, {'attr' : {'class' : 'form-control', 'placeholder' : 'descripcion'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.texto)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                             
+                    {#         {{form_widget(form.tipo, {'attr' : {'class' : 'form-control', 'value' : 2, 'style' : 'display:none'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.tipo)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                    {#           <label>#}
+                    {#              {{form_label(form.foto)}}#}
+                    {#          </label>#}
+                    {#          {{ form_widget(form.foto, { 'id': 'foto' }) }}#}
+                    {#          <span class="text-danger">{{form_errors(form.foto)}}</span>#}
+                    {#      </div>#}
+                          
+                    {#      <p>#}
+                    {#           {{form_widget(form.save, {'label' : 'Guardar Lugar', 'attr' : {'class' : 'btn btn-success' }} ) }}#}
+                    {#      </p>#}
+                          
+                    {#{{ form_end(form) }}#}
+                    
+             <form  method="POST" action="{{path('raa_user_actualizar_organizacion')}}" enctype="multipart/form-data">    
+                
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre</label>
+                             <input class="form-control"     value="{{confi.titulo}}" name="titulo" id="titulo" placeholder="nombrer">
+                    </div>
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Quienes Somos</label>
+                            <textarea class="form-control"   name="texto" id="summer1">{{confi.texto}} </textarea>
+                    </div>
+                    
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">FaceBook</label>
+                            <input class="form-control"   value="{{confi.facebook}}" name="face" id="face" placeholder="link facebook">
+                    </div>
+                    
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Twitter</label>
+                            <input class="form-control"  value="{{confi.twitter}}" name="twit" id="twit" placeholder="link twitter">
+                    </div>
+                    
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Instagram</label>
+                            <input class="form-control" value="{{confi.instagram}}"  name="inst" id="inst" placeholder="link instagram">
+                    </div>
+                    
+                      <div class="form-group">
+                            <label for="exampleInputEmail1">YouTube</label>
+                            <input class="form-control"  value="{{confi.youtube}}"   name="tube" id="tube" placeholder="link youtube">
+                    </div>
+                    
+                    <div  style="display:none" class="form-group">
+                            <label for="exampleInputEmail1">id</label>
+                            <input class="form-control" value="6"  name="idp" id="idp" placeholder="lugar">
+                    </div>
+                    
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Foto</label>
+                            <input type="file" style="margin-bottom:7px"  id="foto" name="foto1" accept="image/png, image/jpeg"  >
+                    
+                    </div>
+                    
+                     
+                     <div class="form-group">
+                            
+                            <input  disabled="true" value="{{ "now"|date("m/d/Y") }}" style="margin-bottom:7px"  id="cal" name="cal"    >
+                    
+                    </div>
+                   
+                    
+                
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-success ">ACTUALIZAR</button>
+                    </div>
+                    
+                    
+               </form>
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+      </div>
+
+{% endblock %}
+
+
+ {% block scripts %} {{ parent() }} 
+ 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+
+  <script>
+      $('#summer1').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+ 
+ {% endblock %}
+

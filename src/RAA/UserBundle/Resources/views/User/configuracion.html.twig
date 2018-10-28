@@ -1,0 +1,147 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }} 
+
+  
+{% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+      <div style="color:white" >
+            
+           
+            <h3 class="text-center" >Configuración</h3>
+            
+            
+      </div>
+     
+                
+             
+               
+      
+                 
+                   <div class="row center-block"  style="margin: auto;width: 50%;padding: 10px;" >
+                      
+      
+                                     <div class="col-md-12 ">
+                                                
+                                                <a href="{{path('raa_user_verCrearNuevoUsuario')}}"  style="height:2cm;padding-top:0.6cm;margin-top:1.5cm" class="btn btn-info btn-block" >CREAR USUARIO</a>
+                                                <br/> 
+                                                <a href="{{path('raa_user_listUsuarios')}}"   style="height:2cm;padding-top:0.6cm" class="btn btn-info btn-block" >LISTA DE USUARIOS</a>
+                                                <br/> 
+                                                <a href="{{path('raa_user_veraddGaleria')}}"   style="height:2cm;padding-top:0.6cm" class="btn btn-info btn-block" >AÑADIR FOTOS A GALERIA</a>
+                                                <br/> 
+                                                <a href="{{path('raa_user_listGaleria')}}"   style="height:2cm;padding-top:0.6cm" class="btn btn-info btn-block" >LISTAR GALERIA</a>
+                                     </div>
+                                      
+                                     <br/>
+                                 
+                        
+
+                       
+                        <!--botones-->
+
+             
+
+                         
+                        
+                          
+                         
+                           
+                      </div>
+                      
+                       
+                     
+               
+              
+             
+ 
+              
+
+{% endblock %}
+
+
+ {% block scripts %}  {{ parent() }} 
+                       
+ 
+                       <!--############################################################-->
+                        <!--############################################################-->
+                        <!--############################################################-->
+                      <script>
+                        $(document).ready(function(){
+     
+    
+                                  //alert('Porta de administración del sitio web');
+                                  var op=100;
+                                 //imagenes de slider
+                             $(function() {
+                                $('#file-slider1').change(function(e) {
+                                      op=0;
+                                      addImage(e); 
+                                 });
+                                $('#file-slider2').change(function(e) {
+                                     op=1;
+                                     addImage(e); 
+                                });
+                               $('#file-slider3').change(function(e) {
+                                     op=2;
+                                     addImage(e); 
+                                });
+                                $('#file-slider4').change(function(e) {
+                                    op=3;
+                                    addImage(e); 
+                                });
+
+                                function addImage(e){
+                                     var file = e.target.files[0],
+                                     imageType = /image.*/;
+    
+                                    if (!file.type.match(imageType))
+                                       return;
+  
+                                       var reader = new FileReader();
+                                        reader.onload = fileOnload;
+                                        reader.readAsDataURL(file);
+                                }
+  
+                                function fileOnload(e) {
+                                       var result=e.target.result;
+                                       switch(op){
+                                          case 0:
+                                              $('#img-slider1').attr("src",result);
+                                          break;
+                                          case 1:
+                                             $('#img-slider2').attr("src",result);
+                                          break;
+                                          case 2:
+                                             $('#img-slider3').attr("src",result);
+                                          break;
+                                          case 3:
+                                             $('#img-slider4').attr("src",result);
+                                           break;
+                                       }
+                    
+                             }
+                          });
+
+
+                        });
+                      </script>
+                       
+                        <!--############################################################-->
+                       <!--############################################################-->
+                           
+                       
+ 
+ 
+ 
+ {% endblock %}
+

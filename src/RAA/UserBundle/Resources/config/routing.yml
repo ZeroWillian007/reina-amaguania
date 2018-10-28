@@ -1,0 +1,313 @@
+raa_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: RAAUserBundle:Default:index }
+    
+raa_user_verDonar:
+    path:     /user/donar
+    defaults: { _controller: RAAUserBundle:User:verDonarPage }  
+    
+raa_user_verLugaresTuristricosMas:
+    path:     /user/lugaresturisticosMas/{id}
+    defaults: { _controller: RAAUserBundle:User:verPaginaLugaresMas }      
+        
+raa_user_verLogin:
+    path:     /user/verlogin
+    defaults: { _controller: RAAUserBundle:User:verLogin }    
+    
+    
+raa_user_Login:
+    path:     /user/login
+    defaults: { _controller: RAAUserBundle:User:Login }        
+    
+    
+raa_user_entrarpanel:
+    path:     /user/panel
+    defaults: { _controller: RAAUserBundle:User:usuarioPanel }    
+    
+    
+raa_user_entradapage:
+    path:     /user/home
+    defaults: { _controller: AppBundle:Default:index }
+    
+    
+raa_user_addCronograma:
+    path:     /user/editar/agregarcronograma
+    defaults: { _controller: RAAUserBundle:User:revisarCronograma }
+    
+raa_user_veraddGaleria:
+    path:     /user/editar/veraddgaleria
+    defaults: { _controller: RAAUserBundle:User:verAddGaleria }    
+    
+raa_user_addReina:
+    path:     /user/editar/agregarreina
+    defaults: { _controller: RAAUserBundle:User:revisarReinas }    
+    
+raa_user_listCronograma:
+    path:     /user/editar/listcronograma
+    defaults: { _controller: RAAUserBundle:User:listCronograma }  
+
+raa_user_listGaleria:
+    path:     /user/editar/listgaleria
+    defaults: { _controller: RAAUserBundle:User:listGaleria }    
+    
+raa_user_addTurismo:
+    path:     /user/editar/agregarturismo
+    defaults: { _controller: RAAUserBundle:User:revisarTurismo } 
+    
+raa_user_listTurismo:
+    path:     /user/editar/listturismo
+    defaults: { _controller: RAAUserBundle:User:listTurismo }  
+    
+raa_user_listUsuarios:
+    path:     /user/editar/listusuarios
+    defaults: { _controller: RAAUserBundle:User:listUsuarios }      
+    
+raa_user_listEvento:
+    path:     /user/editar/listeventos
+    defaults: { _controller: RAAUserBundle:User:listEventos }      
+    
+raa_user_listReinas:
+    path:     /user/editar/listreinas
+    defaults: { _controller: RAAUserBundle:User:listReinas }      
+
+raa_user_listPlatos:
+    path:     /user/editar/listplatos
+    defaults: { _controller: RAAUserBundle:User:listPlatos } 
+    
+raa_user_listFiestas:
+    path:     /user/editar/listfiestas
+    defaults: { _controller: RAAUserBundle:User:listFiestas }      
+    
+raa_user_revisarhomepanel:
+    path:     /user/editar/panel
+    defaults: { _controller: RAAUserBundle:User:revisarPanel }       
+    
+raa_user_organizacion:
+    path:     /extra/organizacion
+    defaults: { _controller: RAAUserBundle:User:organizacion }    
+    
+raa_user_reinaactuall:
+    path:     /user/reinaActual
+    defaults: { _controller: RAAUserBundle:User:reinaActual }
+    
+raa_user_actualizar_slider:
+    path:     /user/actualizar/slider
+    defaults: { _controller: RAAUserBundle:User:actualizarSlider }  
+    methods: POST
+    
+raa_user_actualizar_reina_actual:
+    path:     /user/actualizar/actualizarreinaactual
+    defaults: { _controller: RAAUserBundle:User:actualizarReinaActual }  
+    methods: POST   
+    
+raa_user_actualizar_organizacion:
+    path:     /user/actualizar/actualizarorganizacion
+    defaults: { _controller: RAAUserBundle:User:actualizarOrganizacion }  
+    methods: POST       
+    
+#ruta configuracion
+raa_user_verConfiguracion:
+    path:     /user/verconfiguracion
+    defaults: { _controller: RAAUserBundle:User:verConfiguracion } 
+    
+raa_user_verCrearNuevoUsuario:
+    path:     /user/vercrearnuevousuario
+    defaults: { _controller: RAAUserBundle:User:verCrearNuevousuario }     
+    
+    
+#rutas para menu principal    
+##########################
+##########################
+##########################
+raa_user_verlugaresEventosTodos:
+    path:     /user/lugareEventos
+    defaults: { _controller: RAAUserBundle:User:verLugaresEventos } 
+
+raa_user_verlugaresTuristicos:
+    path:     /user/lugaresturisticos
+    defaults: { _controller: RAAUserBundle:User:verLugaresTuristicos } 
+    
+raa_user_verlugaresVideos:
+    path:     /user/lugaresvideos
+    defaults: { _controller: RAAUserBundle:User:verLugaresVideos } 
+    
+raa_user_verlugaresGaleria:
+    path:     /user/lugaresgaleria
+    defaults: { _controller: RAAUserBundle:User:verLugaresGaleria }     
+    
+raa_user_verlugaresGastronomia:
+    path:     /user/lugaresgastronomia
+    defaults: { _controller: RAAUserBundle:User:verLugaresGastronomia }     
+
+raa_user_verlugaresFiestasTradicionales:
+    path:     /user/lugaresfiestastradicionales
+    defaults: { _controller: RAAUserBundle:User:verLugaresFiestasTradicionales }  
+    
+raa_user_verreinasAmaguana:
+    path:     /user/lugaresreinasamaguana
+    defaults: { _controller: RAAUserBundle:User:verLugaresReinasAmaguana }   
+
+raa_user_verOrganizacion:
+    path:     /user/lugaresorganizacion
+    defaults: { _controller: RAAUserBundle:User:verLugaresOrganizacion }     
+    
+raa_user_verEditReinaActual:
+    path:     /user/vereditreinaactual
+    defaults: { _controller: RAAUserBundle:User:verEditReinaActual }      
+    
+raa_user_verEditOrganizacion:
+    path:     /user/vereditorganizacion
+    defaults: { _controller: RAAUserBundle:User:verEditOrganizacion  }     
+
+   
+##########################
+##########################
+##########################    
+    
+#rutas para panel   
+##########################
+##########################
+##########################    
+raa_user_verEditEvento:
+    path:     /user/vereditevento
+    defaults: { _controller: RAAUserBundle:User:verEditEvento }  
+    
+raa_user_verEditReina:
+    path:     /user/vereditreina
+    defaults: { _controller: RAAUserBundle:User:verEditReina }  
+
+raa_user_verEditPlato:
+    path:     /user/vereditplato
+    defaults: { _controller: RAAUserBundle:User:verEditPlato }  
+    
+raa_user_verEditFiesta:
+    path:     /user/vereditfiesta
+    defaults: { _controller: RAAUserBundle:User:verEditFiesta }    
+
+##########################
+##########################
+##########################   
+
+#--------------------------
+#--------------------------
+
+raa_user_enviarCorreo:
+    path:     /user/enviarcorreo
+    defaults: { _controller: RAAUserBundle:User:enviarCorreo }  
+    methods: POST
+
+raa_user_enviarCorreoComentario:
+    path:     /user/enviarcorreocomentario
+    defaults: { _controller: RAAUserBundle:User:enviarCorreoReina }  
+    methods: POST
+
+
+
+#--------------------------
+#acciones guardar en la base
+
+raa_user_guardarGaleria:
+    path:     /user/guardargaleria
+    defaults: { _controller: RAAUserBundle:User:guardarGaleria }  
+    methods: POST
+
+raa_user_guardarPublicacion:
+    path:     /user/guardarpublicacion
+    defaults: { _controller: RAAUserBundle:User:guardarPublicacion }  
+    methods: POST
+    
+raa_user_guardarUsuario:
+    path:     /user/guardarusuario
+    defaults: { _controller: RAAUserBundle:User:guardarUsuario }  
+    methods: POST    
+
+#editar turismo
+
+raa_user_editarTurismo:
+    path:     /user/editarturismo/{id}
+    defaults: { _controller: RAAUserBundle:User:editarturimos }  
+    
+raa_user_editarFiestas:
+    path:     /user/editarfiestas/{id}
+    defaults: { _controller: RAAUserBundle:User:editarfiestas }     
+    
+raa_user_editarReina:
+    path:     /user/editarreina/{id}
+    defaults: { _controller: RAAUserBundle:User:editarReina }     
+
+raa_user_editarUsuario:
+    path:     /user/editarusuario/{id}
+    defaults: { _controller: RAAUserBundle:User:editarUsuario }  
+  
+raa_user_editarPlatosg:
+    path:     /user/editarplatosg/{id}
+    defaults: { _controller: RAAUserBundle:User:editarPlato  }      
+    
+    
+raa_user_editarEvento:
+    path:     /user/editarevento/{id}
+    defaults: { _controller: RAAUserBundle:User:editarEvento }      
+ 
+raa_user_uctualizarPublicacion:
+    path:     /user/actualizarpublicacion
+    defaults: { _controller: RAAUserBundle:User:actualizarPublicacion }  
+    methods: POST
+    
+raa_user_uctualizarUsuario:
+    path:     /user/actualizarusuario
+    defaults: { _controller: RAAUserBundle:User:actualizarUsuario }  
+    methods: POST    
+
+
+#eliminar publicacion
+raa_user_eliminarPublicacion:
+    path:     /user/eliminarpublicacion/{id}
+    defaults: { _controller: RAAUserBundle:User:eliminarPublicacion }  
+    
+    
+#eliminar usuario
+raa_user_eliminarUsuario:
+    path:     /user/eliminarusuario/{id}
+    defaults: { _controller: RAAUserBundle:User:eliminarUsuario }    
+    
+#redireccionar para ventana de edicion con fecha cronograma
+
+raa_user_editarCronograma:
+    path:     /user/editarcronograma/{id}
+    defaults: { _controller: RAAUserBundle:User:editarCronograma }  
+ 
+
+
+
+#buscar entradas en general
+
+raa_user_buscarEnBase:
+    path:     /user/buscarGeneral
+    defaults: { _controller: RAAUserBundle:User:buscarEnBaseGeneral } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+

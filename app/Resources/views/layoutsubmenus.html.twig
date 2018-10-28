@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+              
+        
+              {% block stylesheets %}
+              
+                  {#ICONO DE LA PESTAÑA DE PAGINA#}
+                  <link rel="shortcut icon" href="/web/public/img/icono.ico" />
+                  {#----------------META-------------------#}    
+             
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <meta name="description" content="">
+                  <meta name="author" content="">
+
+            
+                 {#TITULO#}
+                 <title>{% block title %}AMAGUAÑA{% endblock %}</title>
+
+                 <!-- Bootstrap core CSS -->
+                 <link href="/web/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                 
+                    <!-- EStilos img-->
+                 <link href="/web/public/css/estilosimg.css" rel="stylesheet">
+                 
+                     <!-- EStilos wow-->
+                 <link href="/web/public/css/animate.css" rel="stylesheet">
+
+                 <!-- fonts de google -->
+                 <link href="/web/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+                 <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+                 <!-- Css personalizado -->
+                 <link href="/web/public/css/estilos.css" rel="stylesheet">
+                 
+   
+               
+                 
+            
+             {% endblock %}
+            
+        </head>
+         <style>
+             .pie{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40px; 
+                margin: auto;
+                background-color:  #003471;
+                font-family:  "Agency FB";
+                color: white;
+                padding: 5px 5px 5px 5px;
+                font-size: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+              }
+        </style>
+        <body id="page-top" style="background-color:#FDF5E6" >
+            
+                        {% set general = app.session.get('general') %}
+ 
+            <!-- Modal para donar en pasteles -->
+<div class="modal fade" id="exampleModalDonar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success animated flipInY" id="exampleModalLabel">Donaciones Fundacion Reina de Amaguña</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img class="img-fluid img-responsive animated zoomIn "  style="margin:auto;display:block;width: 300px; height: 270px; object-fit: fill;" src="/web/public/img/pastel1.png" alt="">
+                         
+        
+        <p class="text-info text-justify animated zoomIn" >
+           Ayudanos a ayudar has tus donaciones comprando pasteles a la fundacion lo cual ayudara a 
+           dar de comer a muchos niños de la calle de todo quito por que la Fundacion Reina de Amaguaña
+           se preocupa por la juventud y la niñes si te interesa darnos una manito presiona Ir a Donar 
+           y ayudanos.
+        </p>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-primary">Ir A Donar</button>
+      </div>
+    </div>
+  </div>
+</div>   
+                                     
+ 
+                        
+        
+            {% block body %}
+
+              <div id="google_translate_element" class="pull-right"  style="display:none"  ></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,fr,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                               
+              
+            {% endblock %}
+        
+        
+        
+        
+            {% block scripts %}
+              
+                       <!-- Bootstrap core JavaScript -->
+                       <script src="/web/public/vendor/jquery/jquery.min.js"></script>
+                       
+                       <script src="/web/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                       <!-- Plugin JavaScript -->
+                       <script src="/web/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                       <!-- Contact de JavaScript -->
+                       <script src="/web/public/js/jqBootstrapValidation.js"></script>
+                       <script src="/web/public/js/contact_me.js"></script>
+
+                       <!-- script de la pantalla-->
+                       <script src="/web/public/js/agency.min.js"></script>
+                       
+            
+            {% endblock %}
+      </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="RAA\UserBundle\Entity\ConfiguracionGeneral" table="General">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    
+    <field name="titulo" type="string" column="titulo" nullable="true"/>
+    <field name="texto" type="string" column="texto" nullable="true"/>
+    <field name="facebook" type="string" column="facebook" nullable="true"/>
+    <field name="twitter" type="string" column="twitter" nullable="true"/>
+    <field name="Instagram" type="string" column="Instagram" nullable="true"/>
+    <field name="youtube" type="string" column="youtube" nullable="true"/>
+    
+    <field name="slide1" type="string" column="slide1" nullable="true"/>
+    <field name="slide2" type="string" column="slide2" nullable="true"/>
+    <field name="slide3" type="string" column="slide3" nullable="true"/>
+    <field name="slide4" type="string" column="slide4" nullable="true"/>
+    <field name="modificacionAt" type="date" column="modificacionAt" nullable="true"/>
+  </entity>
+</doctrine-mapping>

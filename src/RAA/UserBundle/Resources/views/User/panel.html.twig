@@ -1,0 +1,183 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }} 
+
+  
+{% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+      <div style="color:white" >
+            
+           
+            <h3 class="text-center" >Configuración de Presentación</h3>
+            
+            
+      </div>
+     
+                 {% set general = app.session.get('general') %}
+             
+               <form  method="POST" action="{{path('raa_user_actualizar_slider')}}"  enctype="multipart/form-data"   >
+      
+                 
+                   <div class="row center-block"  style="margin: auto;width: 50%;padding: 10px;" >
+                      
+                      <!--IMAGENES DE SLIDER-->
+                        
+                              <div class="row text-center text-lg-left">
+
+                                      <div class="col-lg-6 col-md-4 ">
+                                          
+                                          
+                                          <label class="btn btn-default d-block mb-4 h-100 "  style=" margin-left:4px;margin-top:10px">
+                                                <img    id="img-slider1"   class="  img-fluid img-thumbnail" src="{{ asset('uploads/slider/' ~ general.getSlide1) }}" alt="">
+                                                 <input    type="file" style="display: none"  id="file-slider1" name="file-slider1" >
+                                            </label> 
+                                   
+          
+                                     </div>
+                                      <div class="col-lg-6 col-md-4 col-xs-6 ">
+                                          
+                                          
+                                          <label class="btn btn-default d-block mb-4 h-100 "  style=" margin-left:1px;margin-top:10px">
+                                               <img    id="img-slider2"   class="img-fluid img-thumbnail"    src="{{ asset('uploads/slider/' ~ general.getSlide2) }}" alt="">
+                                                 <input    type="file" style="display: none"  id="file-slider2" name="file-slider2" >
+                                            </label> 
+                                   
+          
+                                     </div>
+                                     <div class="col-lg-6 col-md-4 col-xs-6">
+                                          
+                                          
+                                          <label class="btn btn-default d-block mb-4 h-100 "  style=" margin-left:1px;margin-top:10px">
+                                                <img id="img-slider3"  class="img-fluid img-thumbnail" src="{{ asset('uploads/slider/' ~ general.getSlide3) }}" alt="">
+                                                 <input    type="file" style="display: none"  id="file-slider3" name="file-slider3" >
+                                            </label> 
+                                   
+          
+                                     </div>
+                                      <div class="col-lg-6 col-md-4 col-xs-6">
+                                          
+                                          
+                                          <label class="btn btn-default d-block mb-4 h-100 "  style=" margin-left:1px;margin-top:10px">
+                                                <img id="img-slider4"  class="img-fluid img-thumbnail" src="{{ asset('uploads/slider/' ~ general.getSlide4) }}" alt="">
+                                                 <input    type="file" style="display: none"  id="file-slider4" name="file-slider4" >
+                                            </label> 
+                                   
+          
+                                     </div>
+       
+                 </div>
+                        
+                        
+
+                       
+                        <!--botones-->
+
+             
+
+                         
+                        
+                          <label class="btn btn-block btn-primary " style="margin-left:10px;margin-top:10px"  >
+                               ACTUALIZAR <input type="submit" style="display: none"  >
+                           </label>  
+                          
+                         
+                           
+                      </div>
+                      
+                       
+                     
+                </form>
+              
+             
+ 
+              
+
+{% endblock %}
+
+
+ {% block scripts %}  {{ parent() }} 
+                       
+ 
+                       <!--############################################################-->
+                        <!--############################################################-->
+                        <!--############################################################-->
+                      <script>
+                        $(document).ready(function(){
+     
+    
+                                  //alert('Porta de administración del sitio web');
+                                  var op=100;
+                                 //imagenes de slider
+                             $(function() {
+                                $('#file-slider1').change(function(e) {
+                                      op=0;
+                                      addImage(e); 
+                                 });
+                                $('#file-slider2').change(function(e) {
+                                     op=1;
+                                     addImage(e); 
+                                });
+                               $('#file-slider3').change(function(e) {
+                                     op=2;
+                                     addImage(e); 
+                                });
+                                $('#file-slider4').change(function(e) {
+                                    op=3;
+                                    addImage(e); 
+                                });
+
+                                function addImage(e){
+                                     var file = e.target.files[0],
+                                     imageType = /image.*/;
+    
+                                    if (!file.type.match(imageType))
+                                       return;
+  
+                                       var reader = new FileReader();
+                                        reader.onload = fileOnload;
+                                        reader.readAsDataURL(file);
+                                }
+  
+                                function fileOnload(e) {
+                                       var result=e.target.result;
+                                       switch(op){
+                                          case 0:
+                                              $('#img-slider1').attr("src",result);
+                                          break;
+                                          case 1:
+                                             $('#img-slider2').attr("src",result);
+                                          break;
+                                          case 2:
+                                             $('#img-slider3').attr("src",result);
+                                          break;
+                                          case 3:
+                                             $('#img-slider4').attr("src",result);
+                                           break;
+                                       }
+                    
+                             }
+                          });
+
+
+                        });
+                      </script>
+                       
+                        <!--############################################################-->
+                       <!--############################################################-->
+                           
+                       
+ 
+ 
+ 
+ {% endblock %}
+

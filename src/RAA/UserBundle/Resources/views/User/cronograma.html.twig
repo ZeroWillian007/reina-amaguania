@@ -1,0 +1,129 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+     
+     <div style="color:white" >
+            
+           
+            <h3 class="text-center" >Edicion de Cronograma</h3>
+            <div class="row center-block">
+                <div class="col-md-6"  style="margin: auto;" >
+                    {#<form>#}
+                    {#     <div class="form-group">#}
+                    {#         <label for="exampleInputEmail1">Nombre del Lugar</label>#}
+                    {#         <input class="form-control"  name="nomevento" id="nomevento" placeholder="lugar">#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#         <label for="exampleInputPassword1">Descripcion</label>#}
+                    {#         <textarea name="desevento" id="desevento"  class="form-control" rows="3"></textarea>#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#        <label for="exampleInputFile">Imagen del Lugar</label>#}
+                    {#        <input type="file" id="fotoevento"  name="fotoevento" >#}
+                           
+                    {#    </div>#}
+
+                    {#   <button  style="margin-bottom: 25px;" type="submit" class="btn btn-default">Agregar Lugar</button>#}
+                    {#</form>#}
+                    
+                    {#{{ form_start(form) }}#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.titulo)}}#}
+                    {#         {{form_widget(form.titulo, {'attr' : {'class' : 'form-control', 'placeholder' : 'Evento'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.titulo)}} </span>#}
+                             
+                    {#      </div>#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.texto)}}#}
+                    {#         {{form_widget(form.texto, {'attr' : {'class' : 'form-control', 'placeholder' : 'descripcion'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.texto)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                             
+                    {#         {{form_widget(form.tipo, {'attr' : {'class' : 'form-control', 'value' : 2, 'style' : 'display:none'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.tipo)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                    {#           <label>#}
+                    {#              {{form_label(form.foto)}}#}
+                    {#          </label>#}
+                    {#          {{ form_widget(form.foto, { 'id': 'foto' }) }}#}
+                    {#          <span class="text-danger">{{form_errors(form.foto)}}</span>#}
+                    {#      </div>#}
+                          
+                    {#      <p>#}
+                    {#           {{form_widget(form.save, {'label' : 'Guardar Lugar', 'attr' : {'class' : 'btn btn-success' }} ) }}#}
+                    {#      </p>#}
+                          
+                    {#{{ form_end(form) }}#}
+                    
+             <form  method="POST" action="{{path('raa_user_guardarPublicacion')}}" enctype="multipart/form-data">    
+                
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre del Evento</label>
+                             <input class="form-control"   name="titulo" id="titulo" placeholder="Evento">
+                    </div>
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Hora</label>
+                            <input class="form-control"  name="texto" id="texto" > 
+                    </div>
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Lugar</label>
+                            <input class="form-control"  name="adicional" id="adicional" > 
+                    </div>
+                    <div  style="display:none" class="form-group">
+                            <label for="exampleInputEmail1">id</label>
+                            <input class="form-control" value="2"  name="idp" id="idp" placeholder="lugar">
+                    </div>
+                    
+                    {# <div class="form-group">#}
+                    {#        <label for="exampleInputEmail1">Foto de Evento</label>#}
+                    {#         <input type="file" style="margin-bottom:7px"  id="foto" name="foto" accept="image/png, image/jpeg, image/jpg"  >#}
+                    {#</div>#}
+                    
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Fecha</label>
+                            <input type="date" style="margin-bottom:7px"  id="fecha" name="fecha"   >
+                    </div>
+                    
+                    
+                   
+                    
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-success ">CUARDAR EVENTO</button>
+                    </div>
+                    
+                    
+               </form>
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+      </div>
+     
+               
+ 
+       
+
+{% endblock %}
+
+
+ {% block scripts %} {{ parent() }} {% endblock %}
+

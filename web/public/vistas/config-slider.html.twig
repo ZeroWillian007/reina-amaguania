@@ -1,0 +1,47 @@
+
+            <form  method="POST"  enctype="multipart/form-data"   >
+              
+              
+                  
+              
+                   <div class="row center-block"  style="margin: auto;width: 50%;padding: 10px;" >
+                      
+                      <!--IMAGENES DE SLIDER-->
+                        
+                         <div class="col-md-4">
+                            <img src="{{ asset('uploads/fotos/img1.jpg') }}"  style="width:150px;height: 150px;"  id="img-user-perfil1" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{{ asset('uploads/fotos/img2.jpg') }}" style="width:150px;height: 150px"  id="img-user-perfil2"  />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{{ asset('uploads/fotos/img3.jpg') }}" style="width:150px;height: 150px"   id="img-user-perfil3" />
+                        </div>
+                       
+                        <!--FOTOS-->
+                            <label class="btn btn-success "  style=" margin-left:8px;margin-top:10px">
+                               SLIDE 1 <input type="file" style="display: none"  id="slide1" name="slide1" >
+                            </label> 
+                         
+                           <label class="btn btn-success "  style="margin-left:8px;margin-top:10px" >
+                               SLIDE 2 <input type="file" style="display: none" id="slide2" name="slide2">
+                           </label>
+                           <label class="btn btn-success " style="margin-left:8px;margin-top:10px"  >
+                               SLIDE 3 <input type="file" style="display: none" id="slide3" name="slide3">
+                           </label>  
+                           <label class="btn btn-success " style="margin-left:8px;margin-top:10px"  >
+                               SLIDE 4 <input type="file" style="display: none" id="slide4" name="slide4">
+                           </label>  
+                        
+                        
+                          <label class="btn btn-primary " style="margin-left:8px;margin-top:10px"  >
+                               ACTUALIZAR <input type="submit" style="display: none"  >
+                           </label>  
+                          
+                         
+                           
+                      </div>
+                      
+                       
+                     
+                </form>

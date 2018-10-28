@@ -1,0 +1,4 @@
+services:
+#    raa_user.example:
+#        class: RAA\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

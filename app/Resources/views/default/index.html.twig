@@ -1,0 +1,600 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }} 
+
+ <!-- Bootstrap core CSS -->
+                 <link href="/web/public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+
+
+
+
+{% endblock %}
+
+{% block body %}
+
+    
+   
+    <section   style="padding-top:0cm;background-color:#7FFFD4" id="services"  >
+      <div class="container">
+             <div class="row">
+                <div class="col-lg-12 text-center   wow fadeInLeft">
+                    <h2 class="section-heading text-uppercase "  style="margin-top:1cm;color:#A52A2A" >Sonrie Amaguaña</h2>
+                    <h3 class="section-subheading text-muted">Conoce algo acerca de nuestra hermosa comunidad !
+                    </h3>
+                </div>
+             </div>
+        
+       
+        <div class=" text-center" >
+          
+             {#himno#}
+             <h5 style="text-align: center;"  class="wow fadeInLeft" >HIMNO DE LA PARROQUIA DE AMAGUAÑA</h5><br/>
+             
+                <h7  class="wow fadeInUp"  >I.</h7>  
+                 <p class="wow fadeInUp "  style="color:blue" >Amaguaña rincón primoroso <br/>
+                    A tu suelo bendijo el Señor <br/>
+                    Hasta el sol te sonríe amoroso <br/>
+                    Y la brisa refresca el calor.</p>
+
+
+                   <h7 class="wow fadeInUp" >II.</h7>
+
+                  <p class="wow fadeInUp" style="color:blue" >De los Chillos el brazo Potente<br/>
+                   De la Patria esperanza floral<br/>
+                   De tus hijos el pecho valiente<br/>
+                   Coraza de bronce ante el mal</p>
+
+
+                   <h7 class="wow fadeInUp" >III.</h7>
+                   
+                   <p class="wow fadeInUp" style="color:blue" > Eres cuna del prócer Salinas,  <br/>
+                      Y del gran señorío, mansión, <br/>
+                      Hoy constante y triunfante caminas,<br/> 
+                      A la cumbre de noble ilusión</p>
+
+                   <h7 class="wow fadeInUp" >IV.</h7>          
+
+                   <p class="wow fadeInUp" style="color:blue" >Alegría mantienen tus lares, <br/>
+                      En la torre se eleva la cruz; <br/>
+                      Eres como barquilla en los mares, <br/>
+                      Eres como en la noche, la luz.</p>
+
+                    <h7 class="wow fadeInUp" >V.</h7>
+
+                    <p class="wow fadeInUp" style="color:blue" >Te coronan las cumbres andinas <br/>
+                       Con dorado y flotante trigal;<br/>
+                       A tus campos de verdes campiñas <br/>
+                       Lo circunda gallardo maizal.</p>
+
+
+                      <audio src="/web/audios/him.mp3" preload="auto" controls></audio><br/>
+
+                       <h7 class="wow fadeInUp"  ><b>Letra:</b> José Enrique Tello &nbsp; &nbsp; </h7>
+
+                       <h7 class="wow fadeInUp" ><b>Música:</b> Richard Antón</h7>
+         
+        </div>
+      </div>
+      
+      
+       
+      
+      
+      
+      
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section  id="portfolio" style=" background-image: url(/web/public/img/fondos/fondo19.jpg);   "  >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center ">
+            <h2 class="section-heading text-uppercase wow slideInRight"  style="color:black " >  Eventos  </h2>
+            
+            <h3 class="section-subheading  wow slideInLeft" style="color:black"  >   Fotos de eventos más importantes. </h3>
+            
+          </div>
+        </div>
+        <div class="row">
+          
+          {#obtener publicacion de eventos#}
+          {% set eventos = app.session.get('eventos') %}
+          
+          {% for evento in eventos %}
+               
+              
+               
+               
+                {#obtener imagen#}
+                {% set ruta = '/web/uploads/evento/'  %}
+                {% set imagenEvento = evento.foto  %}
+                {% set idmodal = loop.index  %}
+               
+              {#<div class="col-md-4 col-sm-6 portfolio-item  wow rotateIn">#}
+              {#        <a class="portfolio-link" data-toggle="modal" href="{{'#portfolioModal' ~ loop.index}}">#}
+              {#           <div class="portfolio-hover">#}
+              {#               <div class="portfolio-hover-content">#}
+              {#                   <i class="fa fa-plus fa-3x"></i>#}
+              {#              </div>#}
+              {#           </div>#}
+                         
+                        
+                      
+              {#             <img class=" img-responsive "  style="margin:auto;display:block;width: 350px; height: 250px; object-fit: fill;" src="{{ ruta ~ imagenEvento  }}" alt="">#}
+                         
+                        
+              {#       </a>#}
+              {#       <div class="portfolio-caption">#}
+              {#           <h4> {{evento.titulo}} </h4>#}
+              {#           <p class="text-muted"> {{evento.adicional}} </p>#}
+              {#      </div>#}
+              {#</div>#}
+              
+              <div class="col-md-4 col-sm-6 ih-item square effect7 wow zoomIn"><a data-toggle="modal" href="{{'#portfolioModal' ~ loop.index}}" >
+                       <div class="img">  <img class=" img-responsive "  src="{{ ruta ~ imagenEvento  }}" alt="">  </div>
+                       <div class="info">
+                           <h3>{{evento.titulo}}</h3>
+                             
+                       </div></a>
+              </div>
+              
+              
+              
+              
+              
+          {% endfor %}
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" style="background-image: url(/web/public/img/fondos/fondo18.jpg);"  >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase wow slideInUp " style="color:black;"  >  Cronograma   </h2>
+            <h3 class="section-subheading  wow slideInDown" style="color:black;"  >   Línea temporal de eventos importantes.   </h3>
+          </div>
+        </div>
+        
+        
+        {#obtener cronograma #}
+        {% set cronogramas = app.session.get('cronogramas') %}
+        
+         
+         
+              
+             
+                
+                      <div class="row" >
+                          
+                            {% for crono in cronogramas %}
+                             {% set ruta = '/web/uploads/cronograma/'  %}
+                             {% set imagenCronograma = crono.foto  %} 
+                           
+                                 <div class="col-md-4" style="margin-bottom:5px">
+                                          <div class="card" style="width: 18rem;">
+                                    
+                                    <div class="card-header" style="background:#6495ED" >
+                                        <h5   style="font-family: 'Chakra Petch', sans-serif;color:white" class="text-center">  {{ crono.fecha |date("d/m/Y") }}</h5>
+                                     </div>
+                                    
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ crono.titulo  }}</h5>
+                                        <h5 class="card-text"> <i class="fa fa-clock-o" aria-hidden="true"></i> {{ crono.texto  }}</h5>
+                                         <h5 class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ crono.adicional  }}</h5> 
+                                     </div>
+                                 </div>
+                                 </div>
+                                 
+                           
+                                 
+                            
+                             {% endfor %}
+                      </div>
+                  
+         
+         
+         
+         
+         
+         
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section  style="background-color:#00CED1; background-image: url(/web/public/img/fondos/fondo22.jpg);" id="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase wow slideInRight" style="color:black;" >  Últimas Reinas de Amaguaña   </h2>
+            <h3 class="section-subheading  wow slideInLeft" style="color:black" >   Conoce nuestras preciosas reinas.  </h3>
+          </div>
+        </div>
+        <div class="row">
+          
+           {#obtener reinas #}
+           {% set reinas = app.session.get('reinas') %}
+          
+          {% for reina in reinas %}
+          
+                     {#obtener imagen#}
+                     {% set ruta = '/web/uploads/reinas/'  %}
+                     {% set imagenReina = reina.foto  %}
+          
+                 <div class="col-sm-4" style="overflow:hidden">
+                       <div class="team-member" >
+                              
+                             
+                              <img class="mx-auto rounded-circle wow flipInX"     src="{{ruta ~ imagenReina }}" alt="">
+                              
+                              
+                            
+                              
+                              
+                              <h4 style="color:white;background-color:black;opacity:0.6;" >  {{reina.titulo}}   </h4>
+                              <p style="color:white;background-color:black;opacity:0.6;" >  {{reina.texto}}  </p>
+                              <ul class="list-inline social-buttons">
+                                    <li class="list-inline-item  wow bounce">
+                                        <a href="{{ reina.twitter }}">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item wow bounce">
+                                        <a href="{{ reina.facebook }}">
+                                             <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item wow bounce">
+                                         <a href="{{ reina.Instagram }}">
+                                             <i class="fa fa-linkedin"></i>
+                                         </a>
+                                    </li>
+                             </ul>
+                        </div>
+                  </div>
+              
+          {% endfor %}
+          
+          
+          
+          
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="large" style="color:white;background-color:black;opacity:0.6;"  >  Sigue nuestras reinas en las redes sociales y entérate de las últimas  novedades y actividades  que se encuentran realizando.  </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto"  style="height:4cm;" src="/web/public/img/logos/reina4.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto"  style="height:4cm;" src="/web/public/img/logos/creando-sonrisas.jpg" alt="">
+            </a>
+          </div>
+       
+      
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+   
+    <section id="contact"   style="background-image: url(/web/public/img/fondos/fondo21.jpg);"  >
+    
+        <div class="row"   >
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase wow slideInLeft" style="color:black" >  Redes Sociales </h2>
+            <h3 class="section-subheading  wow slideInRight " style="color:black" >  siguenos en las redes sociales </h3>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-lg-12"  >
+            
+            
+            
+                 <div   id="fb-root"></div>
+                 <script>(function(d, s, id) {
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) return;
+                 js = d.createElement(s); js.id = id;
+                 js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.1';
+                 fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));</script>
+            
+            <div  class="row ">
+             
+                 <div class="col-md-3 ">
+                     <div style="display: block;margin-right: auto;margin-left:10px"  class="fb-page " data-href="https://www.facebook.com/sonrieamaguana/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/sonrieamaguana/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/sonrieamaguana/">Ana Belén Morales   Reina de Amaguaña 2018</a></blockquote></div>
+                </div>
+                
+                 <div class="col-md-5  " style="background:white"  >
+              
+                     <form   method="POST" action="{{path('raa_user_enviarCorreoComentario')}}"  >
+                         <div class="form-group">
+                             <label for="exampleInputEmail1 "  style="margin-top:10px"   >Nombre</label>
+                             <input type="text" class="form-control" id="nombre" name="nombre"  aria-describedby="emailHelp" placeholder="Colocar nombre">
+                         
+                         </div>
+                         <div class="form-group">
+                             <label for="exampleInputPassword1">Telefono</label>
+                             <input type="text" class="form-control" id="tel" name="tel" placeholder="Colocar telefono" >
+                         </div>
+                         
+                          <div class="form-group">
+                             <label for="exampleInputPassword1">Correo Electronico</label>
+                             <input type="text" class="form-control" id="correo" name="correo" placeholder="Colocar correo" >
+                         </div>
+  
+  
+ 
+                         <div class="form-group">
+                             <label for="exampleTextarea">Mensaje</label>
+                            <input type="text" class="form-control" id="comen" name="comen" placeholder="Escriba su mensaje" >
+                         </div>
+                         
+                    
+                    
+                          <button   id="enviarComen" type="button" class="btn btn-primary btn-block" style="margin-bottom:5px">ENVIAR</button>
+             </form>
+                      
+                </div>
+                
+                <div class="col-md-3"  >
+              
+                  <a  class="twitter-timeline" href="https://twitter.com/AmaguanaSonrie?ref_src=twsrc%5Etfw">Tweets by AmaguanaSonrie</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              
+                </div>
+                
+                
+               
+                
+               
+    
+            </div>
+            
+            
+          </div>
+          
+          
+          
+          
+        </div>
+      
+    </section>
+
+    <footer style="background-color:#E6E6FA">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 ">
+            <span class="copyright">Copyright &copy; Reinado de Amaguaña 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item ">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item ">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item ">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+    
+    {% for evento in eventos %}
+    
+           <div class="portfolio-modal modal fade" id="{{'portfolioModal' ~ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+                     <div class="modal-dialog">
+                              <div class="modal-content">
+                                      <div class="close-modal" data-dismiss="modal">
+                                                 <div class="lr">
+                                                       <div class="rl"></div>
+                                                 </div>
+                                      </div>
+                                      <div class="container">
+                                                <div class="row">
+                                                   <div class="col-lg-8 mx-auto">
+                                                      <div class="modal-body">
+                                                          
+                                                            {#obtener imagen#}
+                                                            {% set ruta = '/web/uploads/evento/'  %}
+                                                            {% set imagenEvento = evento.foto  %}
+                                                          
+                                                          <h2 class="text-uppercase animated tada text-primary"> {{evento.titulo}} </h2>
+                                                          <p class="item-intro text-muted animated zoomIn">  {{evento.adicional}} </p>
+                                                         <img class="img-fluid d-block mx-auto" src="{{ruta ~ imagenEvento }}" alt="">
+                                                          <p class="text-justify animated  bounceIn text-success">  {{evento.texto}}  </p>
+                                                      
+                                                         <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                                     <i class="fa fa-times"></i>
+                                                         Cerrar Evento</button>
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                      </div>
+                              </div>
+                    </div>
+            </div>
+           
+    {% endfor %}
+    
+   
+
+    
+    
+       
+
+{% endblock %}
+
+
+
+
+ {% block scripts %} {{ parent() }} 
+ 
+ <script>
+ 
+ function aButtonPressed(){
+    $.post('{{path('raa_user_enviarCorreoComentario')}}',               
+                {correo: document.getElementById('correo').value ,
+                tel:document.getElementById('tel').value ,
+                nombre: document.getElementById('nombre').value ,
+                mensaje: document.getElementById('comen').value }, 
+            function(response){
+                    if(response.code == 100 && response.success){//dummy check
+                      //do something
+                    }
+
+    }, "json");    
+
+     
+    document.getElementById("correo").value = "";
+    document.getElementById("tel").value = "";
+    document.getElementById("nombre").value = "";
+    document.getElementById("comen").value = "";
+     
+     
+ }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   $(document).ready(function(){
+     
+     new WOW().init();
+     
+     
+      $("#enviarComen" ).click(function() {
+        aButtonPressed();
+      });
+     
+       
+     
+     function cambiarSlider() {
+             $( "#carousel-148456 > a.carousel-control-next" ).trigger( "click" );
+     }
+     
+     setInterval(cambiarSlider, 3000);
+     
+     
+       $( "#ver" ).click(function() {
+               var pos = $( "#inputGroupSelect04 option:selected" ).text();
+               
+       });
+     
+     
+     $( "#carousel-148456 > a.carousel-control-next" ).trigger( "click" );
+   
+    
+    
+
+      
+       
+      var ancho = $(window).width();
+	    var alto = $(window).height();
+	  
+	    
+
+	    if (ancho<=404 ) {
+         
+           $("#carousel-148456 > div > div > div.ih-item.square.effect7 > a > div > img").css( "height","5cm" );
+           $("#carousel-148456 > div > div > div > p").css("font-size","10px");
+           $("#carousel-148456 > div > div > div > h4").css("font-size","11px");
+           
+              
+           $(".portfolio-modal > div > div > div.container > div > div > div > h2").css("font-size","20px");
+            $("#barra1").css("display","none");
+      }
+      
+	    
+	    $('.zoom').hover(function() {
+        $(this).addClass('transition');
+          }, function() {
+          $(this).removeClass('transition');
+        });  
+   
+   
+      
+      
+      $(window).scroll(function (event) {
+          var scroll = $(window).scrollTop();
+            if(scroll>=300){
+              
+              
+              $("#page-top > div.container-fluid > div > div > div.row").css("display","none");
+              
+              $("#menu").addClass("fixed-top");
+            }
+            
+            
+            if(scroll<300){
+              $("#menu").removeClass( "fixed-top" );
+              $("#barra1").css("display","block");
+              
+            }
+            
+            var ancho = $(window).width();
+            
+            if(scroll==0 && ancho > 404 ){
+             
+              location.reload();
+            }
+            
+            
+            
+      });
+
+      
+    
+        
+        var busqueda = {{ buscadas|json_encode() }};
+        if(busqueda.length>0){
+          $("#listo" ).click();
+          {% set buscadas = [] %}
+          busqueda={};
+           {% set buscadas = app.session.set('buscadas', {} ) %}
+        }
+       
+
+  });
+ </script>
+ 
+ 
+ {% endblock %}
+

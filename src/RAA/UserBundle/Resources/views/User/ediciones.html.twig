@@ -1,0 +1,219 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+     
+     <div style="color:white" >
+            
+           
+            <h3 class="text-center" >Edicion de Lugares Turisticos</h3>
+            <div class="row center-block">
+                <div class="col-md-6"  style="margin: auto;" >
+                    {#<form>#}
+                    {#     <div class="form-group">#}
+                    {#         <label for="exampleInputEmail1">Nombre del Lugar</label>#}
+                    {#         <input class="form-control"  name="nomevento" id="nomevento" placeholder="lugar">#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#         <label for="exampleInputPassword1">Descripcion</label>#}
+                    {#         <textarea name="desevento" id="desevento"  class="form-control" rows="3"></textarea>#}
+                    {#    </div>#}
+                    {#    <div class="form-group">#}
+                    {#        <label for="exampleInputFile">Imagen del Lugar</label>#}
+                    {#        <input type="file" id="fotoevento"  name="fotoevento" >#}
+                           
+                    {#    </div>#}
+
+                    {#   <button  style="margin-bottom: 25px;" type="submit" class="btn btn-default">Agregar Lugar</button>#}
+                    {#</form>#}
+                    
+                     {#{% set ruta = '/web/uploads/turismo/'  %}#}
+                     {#<img class="img-fluid d-block mx-auto" src="{{ruta ~ form.vars.value.foto  }}" alt="">#}
+                   
+                    {# {% if form.vars.value.tipo == 0 %}#}
+                    {#        {% set ruta = '/web/uploads/turismo/'  %}#}
+                            
+                    {# {% endif %}#}
+                     
+                    {# {% if form.vars.value.tipo == 1 %}#}
+                    {#        {% set ruta = '/web/uploads/evento/'  %}#}
+                    {# {% endif %}#}
+                     
+                    {# {% if form.vars.value.tipo == 2 %}#}
+                    {#        {% set ruta = '/web/uploads/cronograma/'  %}#}
+                    {# {% endif %}#}
+                     
+                    {# {% if form.vars.value.tipo == 3 %}#}
+                    {#        {% set ruta = '/web/uploads/reinas/'  %}#}
+                    {# {% endif %}#}
+                     
+                    {# <img class="img-fluid d-block mx-auto"   id="img1" name="img1" src="{{ruta ~ form.vars.value.foto  }}" alt="">#}
+                    
+                    {#{{ form_start(form) }}#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.titulo)}}#}
+                    {#         {{form_widget(form.titulo, {'attr' : {'class' : 'form-control', 'placeholder' : 'lugar'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.titulo)}} </span>#}
+                    
+                    {#      </div>#}
+                    {#      <div class="form-group">#}
+                    {#         {{form_label(form.texto)}}#}
+                    {#         {{form_widget(form.texto, {'attr' : {'class' : 'form-control', 'placeholder' : 'descripcion'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.texto)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                             
+                    {#         {{form_widget(form.tipo, {'attr' : {'class' : 'form-control', 'value' : 0, 'style' : 'display:none'} })}}#}
+                    {#         <span class="text-danger" > {{form_errors(form.tipo)}} </span>#}
+                             
+                    {#      </div>#}
+                          
+                    {#      <div class="form-group">#}
+                    {#           <label>#}
+                    {#              {{form_label(form.foto)}}#}
+                    {#          </label>#}
+                    {#          {{ form_widget(form.foto, { 'id': 'foto' }) }}#}
+                    {#          <span class="text-danger">{{form_errors(form.foto)}}</span>#}
+                    {#      </div>#}
+                          
+                    {#      <p>#}
+                    {#           {{form_widget(form.save, {'label' : 'Actualizar', 'attr' : {'class' : 'btn btn-success'}} ) }}#}
+                    {#      </p>#}
+                    
+                    
+                         
+                    {#{{ form_end(form) }}#}
+                    
+                    
+                     {% if turismo.tipo == 0 %}
+                            {% set ruta = '/web/uploads/turismo/'  %}
+                            
+                     {% endif %}
+                     
+                     {% if turismo.tipo == 1 %}
+                            {% set ruta = '/web/uploads/evento/'  %}
+                     {% endif %}
+                     
+                     {% if turismo.tipo == 2 %}
+                            {% set ruta = '/web/uploads/cronograma/'  %}
+                     {% endif %}
+                     
+                     {% if turismo.tipo == 3 %}
+                            {% set ruta = '/web/uploads/reinas/'  %}
+                     {% endif %}
+                     
+                     <img class="img-fluid d-block mx-auto"   id="img1" name="img1" src="{{ruta ~ turismo.foto  }}" alt="">
+
+                    
+                 <form  method="POST" action="{{path('raa_user_uctualizarPublicacion')}}" enctype="multipart/form-data">    
+                
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre del Lugar</label>
+                             <input class="form-control" value="{{turismo.titulo}}"  name="titulo" id="titulo" placeholder="lugar">
+                    </div>
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Costo en Dolares</label>
+                             <input class="form-control" value="{{turismo.adicional}}"  name="adicional" id="adicional" >
+                    </div>
+                    <div class="form-group">
+                            <label for="exampleInputEmail1">Ubicacion</label>
+                             <input class="form-control" value="{{turismo.facebook}}"  name="face" id="afce" >
+                    </div>
+                    
+                     <div class="form-group">
+                            <label for="exampleInputEmail1">Descripcion</label>
+                            <textarea class="form-control"  name="texto" id="texto"> {{turismo.texto}} </textarea>
+                    </div>
+                    <div  style="display:none" class="form-group">
+                            <label for="exampleInputEmail1">id</label>
+                            <input class="form-control" value="{{turismo.idPublicaion}}"  name="idp" id="idp" placeholder="lugar">
+                    </div>
+                    
+                    
+                    <input type="file" style="margin-bottom:7px"  id="foto" name="foto" accept="image/png, image/jpeg"  >
+                    
+                
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-success ">ACTUALIZAR</button>
+                    </div>
+                    
+                    
+               </form>
+                    
+                    
+            </div> 
+        </div>
+     </div>
+     
+      
+
+{% endblock %}
+
+
+ {% block scripts %} {{ parent() }}
+ <!--############################################################-->
+                        <!--############################################################-->
+                        <!--############################################################-->
+                      <script>
+                        $(document).ready(function(){
+     
+    
+                                  //alert('Porta de administración del sitio web');
+                                  var op=100;
+                                 //imagenes de slider
+                             $(function() {
+                                $('#foto').change(function(e) {
+                                      op=0;
+                                      addImage(e); 
+                                 });
+                               
+
+                                function addImage(e){
+                                     var file = e.target.files[0],
+                                     imageType = /image.*/;
+    
+                                    if (!file.type.match(imageType))
+                                       return;
+  
+                                       var reader = new FileReader();
+                                        reader.onload = fileOnload;
+                                        reader.readAsDataURL(file);
+                                }
+  
+                                function fileOnload(e) {
+                                       var result=e.target.result;
+                                       switch(op){
+                                          case 0:
+                                              $('#img1').attr("src",result);
+                                          break;
+                                          case 1:
+                                             $('#img-slider2').attr("src",result);
+                                          break;
+                                         
+                                       }
+                    
+                             }
+                          });
+
+
+                        });
+                      </script>
+                       
+                        <!--############################################################-->
+                       <!--############################################################-->
+ 
+ 
+ {% endblock %}
+

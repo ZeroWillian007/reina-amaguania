@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+              
+        
+              {% block stylesheets %}
+              
+                  {#ICONO DE LA PESTAÑA DE PAGINA#}
+                  <link rel="shortcut icon" href="/web/public/img/icono.ico" />
+                  {#----------------META-------------------#}    
+             
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <meta name="description" content="">
+                  <meta name="author" content="">
+
+
+
+            
+                 {#TITULO#}
+                 <title>{% block title %}AMAGUAÑA{% endblock %}</title>
+                 
+                 
+              
+
+                 <!-- Bootstrap core CSS -->
+                 <link href="/web/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+                 <!-- fonts de google -->
+                 <link href="/web/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                
+
+                  <!-- Css de panel de control -->
+                 <link href="/web/public/css/sb-admin.css" rel="stylesheet">
+                 <link href="/web/public/css/dataTables.bootstrap4.css" rel="stylesheet">
+            
+             {% endblock %}
+            
+        </head>
+        <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+ 
+                       
+        
+            {% block body %}
+            
+            
+             {% set user1 = app.session.get('user1') %}
+            
+            <!-- Navigation-->
+  <nav class="col-md-12 col-lg-12  navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand"   style="font-family:  Helvetica, sans-serif;color:white" >Reina de Amaguaña </a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{path('raa_user_revisarhomepanel')}}" >
+            <i class="fa fa-camera-retro"></i>
+            <span class="nav-link-text">Slider Presentacion</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
+            <i class="fa fa-calendar"></i>
+            <span class="nav-link-text">Cronograma</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents1">
+            <li>
+              <a   href="{{path('raa_user_addCronograma')}}" >Añadir Cronograma</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listCronograma')}}" >Revisar Conograma</a>
+            </li>
+          </ul>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-street-view"></i>
+            <span class="nav-link-text">Turismo</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li>
+              <a   href="{{path('raa_user_addTurismo')}}" >Añadir Lugar</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listTurismo')}}" >Revisar Lugares</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-heart"></i>
+            <span class="nav-link-text">Reinas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="{{path('raa_user_addReina')}}">Agregar Reina</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listReinas')}}" >Revisar Reinas</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+            <i class="fa fa-smile-o"></i>
+            <span class="nav-link-text">Guia de Eventos</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+            <li>
+              <a href="{{path('raa_user_verEditEvento')}}" >Crear Evento</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listEvento')}}" >Revisar Eventos</a>
+            </li>
+         
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+            <i class="fa fa-cutlery"></i>
+            <span class="nav-link-text">Gastronomia</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+              <a href="{{path('raa_user_verEditPlato')}}"  >Crear Plato</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listPlatos')}}" >Listar Platos</a>
+            </li>
+            
+          </ul>
+        </li>
+        
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meu fiestas">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFiestas" data-parent="#exampleAccordion">
+            <i class="fa fa-certificate"></i>
+            <span class="nav-link-text">Fiestas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseFiestas">
+            <li>
+              <a href="{{path('raa_user_verEditFiesta')}}"  >Crear Fiesta</a>
+            </li>
+            <li>
+              <a href="{{path('raa_user_listFiestas')}}" >Listar Fiestas</a>
+            </li>
+            
+          </ul>
+        </li>
+        
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meu Extras">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExtra" data-parent="#exampleAccordion">
+            <i class="fa fa-plus"></i>
+            <span class="nav-link-text">Extra</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExtra">
+            <li>
+              <a href="{{path('raa_user_verEditReinaActual')}}"  >Editar Reina Actual</a>
+            </li>
+             <li>
+              <a href="{{path('raa_user_verEditOrganizacion')}}"  >Creando Sonrisas</a>
+            </li>
+            
+          </ul>
+        </li>
+        
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="{{path('raa_user_verConfiguracion')}}">
+            <i class="fa fa-gears"></i>
+            <span class="nav-link-text">Configuracion</span>
+          </a>
+        </li>
+      </ul>
+     
+      <ul class="navbar-nav ml-auto">
+       
+       <!-- NOMBRE DEL USAURIO -->
+       
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>{{user1.nombre}} {{user1.apellido}} </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+
+  
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Reina de Amaguaña 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Seguro que quieres Salir?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Seleccione "Salir" Para salir de su panel de control.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="{{path('raa_user_entradapage')}}"  >Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     
+    
+  </div>
+
+                           
+ {% endblock %}
+        
+        
+        
+        
+            {% block scripts %}
+            
+            
+                     
+              
+                       <!-- Bootstrap core JavaScript -->
+                       <script src="/web/public/vendor/jquery/jquery.min.js"></script>
+                       
+                       <script src="/web/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                       <!-- Plugin JavaScript -->
+                       <script src="/web/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                       <!-- Contact de JavaScript -->
+                       <script src="/web/public/js/jqBootstrapValidation.js"></script>
+                       <script src="/web/public/js/contact_me.js"></script>
+
+                       <!-- script de la pantalla-->
+                       <script src="/web/public/js/agency.min.js"></script>
+                       
+
+
+
+  
+ 
+       
+ 
+              
+            {% endblock %}
+      </body>
+</html>

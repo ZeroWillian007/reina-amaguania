@@ -1,0 +1,95 @@
+{% extends 'layoutpanel.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }}  
+
+
+{% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+     
+      <div style="color:white" >
+            
+            {#{% set turismos = app.session.get('turismos') %}#}
+            <h3 class="text-center" >Lista de Reinas </h3>
+            
+            <h5 class="text-center" >Total: {{pagination.getTotalItemCount}}</h5>
+            
+                {#controles de paginacion#}
+                
+                
+  
+              <div  class="pagination" style="margin-left:60%;">
+                    {{knp_pagination_render(pagination)}}
+              </div>
+             
+            <div class="row center-block">
+                <div class="col-md-6"  style="margin: auto;" >
+                  
+                 <table class="table">
+                      <thead>
+                           <tr>
+                              <th>Nombre</th>
+                              <th>Año</th>
+                              <th>Accion</th>
+                           </tr>
+                      </thead>
+                    <tbody>
+                        
+                        {% for t in pagination %}
+                            <tr>
+                                <td>{{t.titulo}}</td>
+                                <td>{{t.texto}}</td>
+                                <td> 
+                                     {#<a class="btn btn-danger">Eliminar</a>  <a class="btn btn-info" href="{{path('raa_user_editarTurismo',{id:t.idPublicaion})}}" > Editar </a> #}
+                                     <a href="{{path('raa_user_eliminarPublicacion',{id:t.idPublicaion})}}" >
+                                            <i style="color:blue; font-size:48px" class="fa fa-trash"></i>
+                                     </a>
+                                     <a href="{{path('raa_user_editarReina',{id:t.idPublicaion})}}" >
+                                            <i style="color:blue; font-size:48px" class="fa fa-edit"></i>
+                                     </a>
+                                </td>
+                            </tr>
+                        {% endfor %}  
+                   </tbody>
+                </table>
+                  
+              
+                  
+              </div>
+              
+        
+          </div>
+      </div>
+     
+               
+             
+              
+              
+              
+                
+                 
+            
+  
+ 
+ 
+ 
+  
+   
+                       
+   
+       
+
+{% endblock %}
+
+
+ {% block scripts %} {{ parent() }} {% endblock %}
+

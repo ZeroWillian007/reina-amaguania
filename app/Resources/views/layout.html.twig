@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+              
+        
+              {% block stylesheets %}
+              
+                  {#ICONO DE LA PESTAÑA DE PAGINA#}
+                  <link rel="shortcut icon" href="/web/public/img/icono.ico" />
+                  {#----------------META-------------------#}    
+             
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <meta name="description" content="">
+                  <meta name="author" content="">
+
+            
+                 {#TITULO#}
+                 <title>{% block title %}AMAGUAÑA{% endblock %}</title>
+
+                 <!-- Bootstrap core CSS -->
+                 <link href="/web/public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+                 
+                 
+                   <!-- EStilos img-->
+                 <link href="/web/public/css/estilosimg.css" rel="stylesheet">
+                 
+                  <!-- EStilos texto-->
+                 <link href="/web/public/css/animate.css" rel="stylesheet">
+                 
+                 
+                 
+                 
+                 
+                
+
+                 <!-- fonts de google -->
+                 <link href="/web/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+                 <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+                 <!-- Css personalizado -->
+                 <link href="/web/public/css/estilos.css" rel="stylesheet">
+            
+             {% endblock %}
+            
+        </head>
+        
+        
+       
+        
+       
+        <body id="page-top"  >
+          
+          
+          
+          
+              
+          
+                        {% set general = app.session.get('general') %}
+                        
+ 
+                     
+                               
+ 
+                       
+                        
+                        <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+		  
+		     
+              <div class="row"  style="background-color:white" >
+                 <div class="col-md-4" style="padding-left:10%;padding-top:30px">
+                    <a  class="wow zoomIn" href="https://www.facebook.com/sonrieamaguana/"   target="_blank"  >
+                       <i class="fa fa-facebook" style="font-size:36px;margin-right:8px; color:blue" ></i>
+                    </a>
+                    <a class="wow zoomIn"  href="https://twitter.com/AmaguanaSonrie">
+                      <i class="fa fa-twitter" style="font-size:36px;margin-right:8px;color:#00CED1" ></i>
+                    </a>
+                    <a class="wow zoomIn"  href="https://www.youtube.com/channel/UCJ3jz0mfRV8Lw5tbPpdiSZA">
+                     <i class="fa fa-youtube" style="font-size:36px;margin-right:8px;color:red" ></i>
+                    </a>
+                  
+                 </div>
+                
+                 
+                 
+                 
+                 
+                       {#traduccion#}
+                      
+                          {% set buscadas = app.session.get('buscadas') %}
+                          <div class="col-md-4 col-sm-2">
+ 
+
+                                 <form  method="POST" action="{{path('raa_user_buscarEnBase')}}" enctype="multipart/form-data">  
+                                   <div class="input-group"  style="margin-top:35px">
+                                       <input type="text" name="nombre" class="form-control" >
+                                       <select  style="display:none"  class="custom-select" id="inputGroupSelect04">
+                                           
+                                           {% for b in buscadas %}
+               
+                                               <option value="{{loop.index}}">{{b.titulo}}</option>
+              
+              
+                                           {% endfor %}
+                                          
+                                           
+                                          
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button  id="buscar"  type="submit" class="btn btn-outline-secondary" >
+                                                  <span class="fa fa-search"></span>
+                                            </button>
+                                             <button  style="display:none" id="listo"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalBuscar"  >
+                                                   <span class="fa fa-search"></span> 
+                                             </button>
+                                            
+                                        </div>
+                                   </div>
+                                 <form/>
+                          </div> 
+                         
+                          <div class="col-md-2">
+                             <div id="google_translate_element"    style="padding-top:35px;margin-left:30% "  ></div>
+                           </div>
+                          
+                           <div class="col-md-1">
+                                {#<button  type="button"  style="margin-top:35px;margin-left:20px;margin-bottom:1px" class="btn btn-warning float-right" data-toggle="modal" data-target="#exampleModalDonar"  >#}
+                                {#    <span class="fa fa-birthday-cake"></span> #}
+                                {#</button>#}
+                           </div>
+                           
+                           <div class="col-md-1">
+                                  <button  type="button"  style="margin-top:35px;margin-left:20px;margin-bottom:1px" class="btn btn-warning float-right" data-toggle="modal" data-target="#exampleModalDonar"  >
+                                    <span class="fa fa-birthday-cake"></span> 
+                                </button>
+                           </div>
+                      
+                        
+                      
+                      <script type="text/javascript">
+                          function googleTranslateElementInit() {
+                           new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,fr,it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                          }
+                      </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                 
+              </div> 
+              <nav  id="menu"  class="navbar navbar-expand-lg navbar-light bg-light ">
+			  
+			  
+  <a class="navbar-brand animated bounceInUp" href="#" onclick="javascript:window.location.reload();" >
+      
+          <img class="img-fluid d-block mx-auto"  style="margin:0;padding:0" src="/web/public/img/logos/reina6.jpg" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" style="margin-left:18%"  id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sonrie Amaguaña
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresTuristicos')}}" >Lugares Turisticos</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresGastronomia')}}" >Gastronomia</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresFiestasTradicionales')}}" >Fiestas Tradicionales</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Galeria
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresGaleria')}}" >Fotos</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresVideos')}}" >Videos</a>
+
+        </div>
+      </li>
+        
+      <li class="nav-item ">
+        <a class="nav-link animated bounceInDown" href="#about">Cronograma <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Eventos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#portfolio" >Mas destacados</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresEventosTodos')}}" >Todos</a>
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reinas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_reinaactuall')}}" >Ana Belen Morales</a>
+          <a class="dropdown-item" href="{{path('raa_user_verreinasAmaguana')}}" >Corte de Honor</a>
+          <a class="dropdown-item" href="{{path('raa_user_verOrganizacion')}}" >Historia de Amaguaña</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link animated bounceInDown" href="#contact" >Redes Sociales</a>
+      </li>
+    </ul>
+    {#<form class="form-inline my-2 my-lg-0">#}
+    {#  <a class="nav-link animated bounceInDown " href="{{path('raa_user_verLogin')}}" >Ingresar</a>#}
+      {#<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalDonar"  >DONAR#}
+      {#   <span class="fa fa-heart"></span> #}
+      {#</button>#}
+    {#</form>#}
+  </div>
+</nav>
+              
+            
+           
+		      
+		      
+			
+			<div class="carousel slide carousel-fade" id="carousel-148456"  style="margin-top:10px">
+				<ol class="carousel-indicators">
+					<li data-slide-to="0" data-target="#carousel-148456" class="active">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-148456" >
+					</li>
+					<li data-slide-to="2" data-target="#carousel-148456" >
+					</li>
+					<li data-slide-to="3" data-target="#carousel-148456" >
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item">
+						{#<img class="d-block w-100 animated zoomIn" style="width: 1400px; height: 580px; object-fit: fill;"  alt="Carousel Bootstrap First" src="{{ asset('uploads/slider/' ~ general.getSlide1) }}" />#}
+						<div class="ih-item square effect7"><a href="#"    >
+                     <div class="img"> <img class="img-fluid img-responsive "   src="{{ asset('uploads/slider/' ~ general.getSlide1) }}" alt=""></div>
+            </a></div>
+						
+					
+					</div>
+					<div class="carousel-item">
+						{#<img class="d-block w-100  animated zoomIn " style="width: 1400px; height: 580px; object-fit: fill;"  alt="Carousel Bootstrap Second" src="{{ asset('uploads/slider/' ~ general.getSlide2) }}" />#}
+					
+					  <div class="ih-item square effect7"><a href="#"    >
+                     <div class="img"> <img class="img-fluid img-responsive "   src="{{ asset('uploads/slider/' ~ general.getSlide2) }}" alt=""></div>
+            </a></div>
+					 
+					
+					</div>
+					<div class="carousel-item active">
+					
+						{#<img class="d-block w-100 animated zoomIn"  style="width: 1400px; height: 580px; object-fit: fill;" alt="Carousel Bootstrap Third" src="{{ asset('uploads/slider/' ~ general.getSlide3)}}" />#}
+					
+					<div class="ih-item square effect7"><a href="#"    >
+                     <div class="img"> <img class="img-fluid img-responsive "   src="{{ asset('uploads/slider/' ~ general.getSlide3) }}" alt=""></div>
+            </a></div>
+					
+				
+					</div>
+					<div class="carousel-item">
+						
+						{#<img class="d-block w-100 animated zoomIn"  style="width: 1400px; height: 580px; object-fit: fill;" alt="Carousel Bootstrap Fourth" src="{{ asset('uploads/slider/' ~ general.getSlide4)}}" />#}
+						
+						<div class="ih-item square effect7"><a href="#"    >
+                     <div class="img"> <img class="img-fluid img-responsive "   src="{{ asset('uploads/slider/' ~ general.getSlide4) }}" alt=""></div>
+            </a></div>
+						
+						
+					</div>
+					
+				</div>
+				<a class="carousel-control-prev" href="#carousel-148456" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" href="#carousel-148456" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- Modal resultado busqueda seleccionado -->
+{% for b in buscadas %}
+
+{#colocar ruta de fotos para eventos#}
+
+      {% if b.tipo == 0 %}
+              {% set ruta = '/web/uploads/turismo/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 1 %}
+              {% set ruta = '/web/uploads/evento/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 2 %}
+              {% set ruta = '/web/uploads/cronograma/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 3 %}
+              {% set ruta = '/web/uploads/reinas/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 4 %}
+              {% set ruta = '/web/uploads/platos/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 5 %}
+              {% set ruta = '/web/uploads/fiestas/'  %}
+      {% endif %}
+      
+      {% if b.tipo == 6 %}
+              {% set ruta = '/web/uploads/fiestas/'  %}
+      {% endif %}
+
+
+
+
+<div class="modal fade" id="{{'exampleModalVer' ~ loop.index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success animated flipInY" id="exampleModalLabel">{{b.titulo}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img class="img-fluid img-responsive animated zoomIn "  style="margin:auto;display:block;width: 300px; height: 270px; object-fit: fill;" src="{{ ruta ~ b.foto }}" alt="">
+                         
+        
+        <p class="text-info text-justify animated zoomIn" >
+           {{b.texto}}
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+ {% endfor %}
+
+<!-- Modal para mostar busqueda -->
+<div class="modal fade" id="exampleModalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success animated flipInY" id="exampleModalLabel">Resultado de la Busqueda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+                        
+        
+        <p class="text-info text-justify animated zoomIn" >
+                                       
+                                       
+                                           
+                                           {% for b in buscadas %}
+               
+                                              
+              
+              
+                                                 <div class="list-group" style="margin-top:4px">
+                                                    <a href="#" data-toggle="modal" data-target="{{'#exampleModalVer' ~ loop.index}}" data-dismiss="modal"  class="list-group-item list-group-item-action flex-column align-items-start active">
+                                                      <div class="d-flex w-100 justify-content-between">
+                                                          <h5 class="mb-1">{{ b.titulo }}</h5>
+                                                          
+                                                      </div>
+                                                      <p class="mb-1">{{ b.texto }}</p>
+                                                      
+                                                    </a>
+                                                 </div>
+              
+                                           {% endfor %}
+                                          
+                                                                        
+                                      
+                                        
+                                        
+                                        
+                                        
+        </p>
+      </div>
+      <div class="modal-footer">
+        
+        <button data-dismiss="modal" id="ver" data-toggle="modal" data-target="#exampleModalVer" type="button" class="btn btn-primary">CERRAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal para donar en pasteles -->
+<div class="modal fade" id="exampleModalDonar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success animated flipInY" id="exampleModalLabel">Donaciones Fundacion Reina de Amaguña</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <img class="img-fluid img-responsive animated zoomIn "  style="margin:auto;display:block;width: 300px; height: 270px; object-fit: fill;" src="/web/public/img/pastel1.png" alt="">
+                         
+        
+        <p class="text-info text-justify animated zoomIn" >
+           Ayudanos a ayudar has tus donaciones comprando pasteles a la fundacion lo cual ayudara a 
+           dar de comer a muchos niños de la calle de todo quito por que la Fundacion Reina de Amaguaña
+           se preocupa por la juventud y la niñes si te interesa darnos una manito presiona Ir a Donar 
+           y ayudanos.
+        </p>
+      </div>
+      <div class="modal-footer">
+        
+        <a href="{{path('raa_user_verDonar')}}" class="btn btn-primary">Ir A Donar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="noresultado" type="button"  style="margin-top:35px;display:none" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalNoResultados"  >DONAR
+                                    <span class="fa fa-heart"></span> 
+</button>
+
+<!-- no se encontraron resultados -->
+<div class="modal fade" id="exampleModalNoResultados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-success animated flipInY" id="exampleModalLabel">Mensaje</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        
+        <p class="text-info text-justify animated zoomIn" >
+           No se encontraron resultados para la palabra buscada
+        </p>
+      </div>
+      <div class="modal-footer">
+        
+        <a href="{{path('raa_user_verDonar')}}" class="btn btn-primary">Ir A Donar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+        
+            {% block body %}
+
+                           
+              
+            {% endblock %}
+        
+        
+            {% block scripts %}
+              
+                       <!-- Bootstrap core JavaScript -->
+                       <script src="/web/public/vendor/jquery/jquery.min.js"></script>
+                       <script src="/web/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                       <script src="/web/public/vendor/bootstrap/js/bootstrap.min.js"></script>
+                       <!-- Plugin JavaScript -->
+                       <script src="/web/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                       <!-- Contact de JavaScript -->
+                       <script src="/web/public/js/jqBootstrapValidation.js"></script>
+                      
+
+                       <!-- script de la pantalla-->
+                       <script src="/web/public/js/agency.min.js"></script>
+                       
+                         <!-- script de la pantalla wow-->
+                       <script src="/web/public/js/wow.min.js"></script>
+                       
+                       
+              
+            {% endblock %}
+      </body>
+</html>

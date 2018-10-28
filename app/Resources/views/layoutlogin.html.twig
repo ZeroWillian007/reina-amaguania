@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+              
+        
+              {% block stylesheets %}
+              
+                  {#ICONO DE LA PESTAÑA DE PAGINA#}
+                  <link rel="shortcut icon" href="/web/public/img/icono.ico" />
+                  {#----------------META-------------------#}    
+             
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <meta name="description" content="">
+                  <meta name="author" content="">
+
+            
+                 {#TITULO#}
+                 <title>{% block title %}AMAGUAÑA{% endblock %}</title>
+
+                 <!-- Bootstrap core CSS -->
+                 <link href="/web/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+                 <!-- fonts de google -->
+                 <link href="/web/public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+                 <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+                 <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+                 <!-- Css personalizado -->
+                 <link href="/web/public/css/estilos.css" rel="stylesheet">
+            
+             {% endblock %}
+            
+        </head>
+        <body id="page-top"   style="background-color:#778899" >
+ 
+                      
+            {% block body %}
+
+                           
+              
+            {% endblock %}
+        
+        
+        
+        
+            {% block scripts %}
+              
+                       <!-- Bootstrap core JavaScript -->
+                       <script src="/web/public/vendor/jquery/jquery.min.js"></script>
+                       <script src="/web/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                       <!-- Plugin JavaScript -->
+                       <script src="/web/public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                       <!-- Contact de JavaScript -->
+                       <script src="/web/public/js/jqBootstrapValidation.js"></script>
+                       <script src="/web/public/js/contact_me.js"></script>
+
+                       <!-- script de la pantalla-->
+                       <script src="/web/public/js/agency.min.js"></script>
+              
+            {% endblock %}
+      </body>
+</html>

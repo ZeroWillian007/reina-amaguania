@@ -1,0 +1,165 @@
+{% extends 'layoutsubmenus.html.twig' %}
+
+{% block title %}
+
+      {{ parent() }}
+
+{% endblock %}
+
+{% block stylesheets %} {{ parent() }}  {% endblock %}
+
+{% block body %}
+ 
+  
+     {{ parent() }}
+     
+     <!-- Navigation -->
+    
+      <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <a class="navbar-brand animated bounceInUp" href="{{path('raa_user_entradapage')}}" onclick="javascript:window.location.reload();" >
+     <img class="img-fluid d-block mx-auto"  style="margin:0;padding:0" src="/web/public/img/logos/reina6.jpg" alt="">
+     </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" style="margin-left:15%" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sonrie Amaguaña
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresTuristicos')}}" >Lugares Turisticos</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresGastronomia')}}" >Gastronomia</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresFiestasTradicionales')}}" >Fiestas Tradicionales</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Galeria
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresGaleria')}}" >Fotos</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresVideos')}}" >Videos</a>
+
+        </div>
+      </li>
+        
+      <li class="nav-item ">
+        <a class="nav-link animated bounceInDown" href="{{path('raa_user_entradapage')}}#about">Cronograma <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Eventos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_entradapage')}}#portfolio" >Mas destacados</a>
+          <a class="dropdown-item" href="{{path('raa_user_verlugaresEventosTodos')}}" >Todos</a>
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle animated bounceInDown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reinas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{path('raa_user_reinaactuall')}}" >Ana Belen Morales</a>
+          <a class="dropdown-item" href="{{path('raa_user_verreinasAmaguana')}}" >Corte de Honor</a>
+          <a class="dropdown-item" href="{{path('raa_user_verOrganizacion')}}" >Historia de Amaguaña</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link animated bounceInDown" href="{{path('raa_user_entradapage')}}#contact" >Redes Sociales</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      
+      <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalDonar"  >DONAR
+         <span class="fa fa-heart"></span> 
+      </button>
+    </form>
+  </div>
+</nav>
+   <br/>
+   <br/>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4 ">Sonrie Amaguaña 
+        <small   >Gastronomia</small>
+      </h1>
+
+      
+      {% set ruta = '/web/uploads/platos/'  %}
+      
+      {% for t in pagination %}
+       
+           <!-- Project One -->
+           <div class="row">
+               <div class="col-md-7">
+                   <a href="#">
+                       <img style="margin:auto;display:block;width: 350px; height: 250px; object-fit: fill;"  class="img-fluid rounded mb-3 mb-md-0 animated slideInLeft" src="{{ruta ~ t.foto  }}" alt="">
+                   </a>
+               </div>
+               <div class="col-md-5">
+                  <h3 class="animated slideInUp" >{{t.titulo}}</h3>
+                  <p  class="text-justify animated slideInRight">{{t.texto}}</p>
+                   {#<a class="btn btn-primary" href="#">View Project</a>#}
+              </div>
+           </div>
+
+      <hr>
+                           
+      {% endfor %} 
+     
+
+
+     
+
+      <!-- Pagination -->
+      <div  class="pagination" >
+                    {{knp_pagination_render(pagination)}}
+      </div>
+      
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark ">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright © Reinado de Amaguaña 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+     
+               
+             
+              
+              
+              
+                
+                 
+            
+  
+ 
+ 
+ 
+  
+   
+                       
+   
+       
+
+{% endblock %}
+
+
+ {% block scripts %} {{ parent() }} {% endblock %}
+
